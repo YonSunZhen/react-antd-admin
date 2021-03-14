@@ -1,0 +1,12 @@
+{
+    "rules": {
+      "semi": ["warn", "always"],
+      "quotes": ["warn", "single"],
+      "no-console": "warn",
+      "no-spaced-func": "warn",
+      "space-infix-ops": ["warn", { "int32Hint": true }],
+      "jsx-a11y/anchor-is-valid": "off",
+      "keyword-spacing": "warn"
+    }
+  }
+  
