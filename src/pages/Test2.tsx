@@ -1,11 +1,9 @@
 import React from 'react';
 
-function Pages() {
+export const Test2 = () => {
   return (
     <div>
-      Pages
+      Test2
     </div>
   );
 }
-
-export default Pages;

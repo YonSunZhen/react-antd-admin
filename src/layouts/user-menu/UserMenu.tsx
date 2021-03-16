@@ -13,7 +13,7 @@ export const UserMenu: React.FC<DropDownMenuProps> = (props) => {
 
   const onLogout = () => {
     onLogoutChange && onLogoutChange();
-  }
+  };
  
   const menu = (
     <Menu>

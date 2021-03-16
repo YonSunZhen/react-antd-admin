@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, HashRouter } from "react-router-dom";
 
 ReactDOM.render(
   // FIXME:
   // <React.StrictMode>
   //   <App />
   // </React.StrictMode>,
-  <App />,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

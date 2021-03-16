@@ -4,20 +4,29 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
-  VideoCameraOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
-import { ISiderMenu, ESiderMenuMode, SiderMenu, UserMenu, IUserMenu } from './layouts';
+import { Route, Switch } from 'react-router-dom';
+import { ISiderMenu, ESiderMenuMode, UserMenu, IUserMenu, SiderMenu } from './layouts';
+import { Test1, Test2 } from './pages';
 import './App.scss';
 
 const { Header, Sider, Content, Footer } = Layout;
+
+interface AppProps{
+
+}
 
 interface AppState {
   collapsed?: boolean,
   menuList?: ISiderMenu,
   userInfo?: IUserMenu
 }
-class App extends React.Component<any, AppState> {
+class App extends React.Component<AppProps, AppState> {
+
+  constructor(props: AppProps) {
+    super(props);
+  }
 
   state: AppState = {
     collapsed: false,
@@ -27,11 +36,12 @@ class App extends React.Component<any, AppState> {
         {
           id: '1',
           name: '全部文件',
+          link: '',
           icon: <MenuUnfoldOutlined />,
           open: true,
           children: [
-            {id: '2', link: './files/all-files', name: '所有文件', matchRouter: true, icon:  <UserOutlined />},
-            {id: '22', link: './files/all-files', name: '所有文件', matchRouter: true }
+            {id: '2', link: '/test1', name: '所有文件1', matchRouter: true, icon:  <UserOutlined />},
+            {id: '22', link: '', name: '所有文件2', matchRouter: true }
           ]
         },
         {
@@ -39,7 +49,7 @@ class App extends React.Component<any, AppState> {
           name: '回收站',
           icon: <UploadOutlined />,
           matchRouter: true,
-          link: './recycle'
+          link: '/test2'
         }
       ]
     },
@@ -58,6 +68,7 @@ class App extends React.Component<any, AppState> {
       collapsed: !this.state.collapsed,
     });
   };
+
 
   render() {
     return (
@@ -80,7 +91,11 @@ class App extends React.Component<any, AppState> {
               </Sider>
             </div>
             <div className="inner-content">
-              666
+              <Switch>
+                <Route path={"/test1"} component={Test1}></Route>
+                <Route path={"/test2"} component={Test2}></Route>
+              </Switch>
+
             </div>
           </Content>
           <Layout className="footer-container">
