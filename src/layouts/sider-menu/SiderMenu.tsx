@@ -8,8 +8,11 @@ interface SiderMenuProps {
 
 const { SubMenu } = Menu;
 
-export const SiderMenu: React.FC<SiderMenuProps> = ({menuList = {}}) => {
+// TODO: 暂时只支持二级菜单 后续改进
+export const SiderMenu: React.FC<SiderMenuProps> = (props) => {
   
+  const {menuList = {}} = props;
+
   return (
     <Menu mode={menuList.mode} defaultSelectedKeys={['1']}>
       {menuList.data?.map((meunItem) => {

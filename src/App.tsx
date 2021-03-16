@@ -7,18 +7,19 @@ import {
   VideoCameraOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
-import { ISiderMenu, ESiderMenuMode, SiderMenu } from './layouts';
+import { ISiderMenu, ESiderMenuMode, SiderMenu, UserMenu, IUserMenu } from './layouts';
 import './App.scss';
 
 const { Header, Sider, Content, Footer } = Layout;
 
-interface State {
+interface AppState {
   collapsed?: boolean,
-  menuList?: ISiderMenu
+  menuList?: ISiderMenu,
+  userInfo?: IUserMenu
 }
-class App extends React.Component<any, State> {
+class App extends React.Component<any, AppState> {
 
-  state = {
+  state: AppState = {
     collapsed: false,
     menuList: {
       mode: ESiderMenuMode.Inline,
@@ -41,10 +42,18 @@ class App extends React.Component<any, State> {
           link: './recycle'
         }
       ]
+    },
+    userInfo: {
+      name: 'SYZ',
+      avatar: 'http://qiniu.yonsunzhen.cn/%E5%A4%B4%E5%83%8F.jpg'
     }
   };
 
-  toggle = () => {
+  onLogoutChange = () => {
+
+  }
+
+  onToggle = () => {
     this.setState({
       collapsed: !this.state.collapsed,
     });
@@ -57,9 +66,10 @@ class App extends React.Component<any, State> {
           <div className="header">
             {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
               className: 'trigger',
-              onClick: this.toggle,
+              onClick: this.onToggle,
             })}
             <div className="title">React Admin</div>
+            <UserMenu userInfo={this.state.userInfo} onLogoutChange={this.onLogoutChange}></UserMenu>
           </div>
         </Header>
         <Layout className="content-container">

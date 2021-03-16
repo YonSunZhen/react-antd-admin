@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 
 export enum ESiderMenuMode {
   Vertical = 'vertical',
@@ -26,6 +26,8 @@ export interface ISiderSubMenu {
   disabled?: boolean;
   name?: string;
   icon?: ReactNode;
+  link?: string;
+  matchRouter?: boolean;
   menuClassName?: string;
   children?: ISiderSubMenu[];
 }
