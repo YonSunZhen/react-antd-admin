@@ -8,7 +8,7 @@ interface SiderMenuProps {
 };
 
 // TODO: 暂时只支持二级菜单 后续改进
-export const SiderMenu: React.FC<SiderMenuProps> = (props) => {
+const SiderMenu: React.FC<SiderMenuProps> = (props) => {
   
   const {menuList = {}} = props;
 
@@ -38,3 +38,5 @@ export const SiderMenu: React.FC<SiderMenuProps> = (props) => {
   )
   
 }
+
+export default SiderMenu;

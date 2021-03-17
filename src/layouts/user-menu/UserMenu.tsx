@@ -7,7 +7,7 @@ interface DropDownMenuProps {
   onLogoutChange?: () => void;
 }
 
-export const UserMenu: React.FC<DropDownMenuProps> = (props) => {
+const UserMenu: React.FC<DropDownMenuProps> = (props) => {
 
   const { userInfo = {}, onLogoutChange } = props;
 
@@ -33,3 +33,5 @@ export const UserMenu: React.FC<DropDownMenuProps> = (props) => {
     </Dropdown>
   );
 }
+
+export default UserMenu;
