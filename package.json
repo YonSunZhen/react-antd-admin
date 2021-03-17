@@ -2,6 +2,14 @@
   "name": "react-antd-admin",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "start:dev": "cross-env REACT_APP_ENV=dev npm run start",
+    "start:prod": "cross-env REACT_APP_ENV=prod npm run start",
+    "build": "cross-env REACT_APP_ENV=prod react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
     "@ant-design/pro-layout": "^6.15.2",
     "@testing-library/jest-dom": "^5.11.4",
@@ -19,12 +27,6 @@
     "react-scripts": "4.0.3",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +50,7 @@
     "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
+    "cross-env": "^7.0.3",
     "eslint": "^7.22.0",
     "eslint-plugin-react": "^7.22.0"
   }
