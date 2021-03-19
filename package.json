@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@ant-design/pro-layout": "^6.15.2",
+    "@ant-design/pro-table": "^2.31.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -20,6 +21,7 @@
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "antd": "^4.13.1",
+    "axios": "^0.21.1",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

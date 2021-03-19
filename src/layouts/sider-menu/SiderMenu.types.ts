@@ -27,8 +27,8 @@ export interface ISiderSubMenu {
   name?: string;
   icon?: ReactNode;
   link: string;
-  matchRouter?: boolean;
-  menuClassName?: string;
+  // matchRouter?: boolean;
+  // menuClassName?: string;
   children?: ISiderSubMenu[];
 }
 

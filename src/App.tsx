@@ -8,7 +8,7 @@ import {
 } from '@ant-design/icons';
 import { Route, Switch } from 'react-router-dom';
 import { ISiderMenu, ESiderMenuMode, UserMenu, IUserMenu, SiderMenu } from './layouts';
-import { Test1, Test2 } from './pages';
+import { Test1, Test2, PlatformProject } from './pages';
 import './App.scss';
 
 const { Header, Sider, Content, Footer } = Layout;
@@ -40,16 +40,21 @@ class App extends React.Component<AppProps, AppState> {
           icon: <MenuUnfoldOutlined />,
           open: true,
           children: [
-            {id: '2', link: '/test1', name: '所有文件1', matchRouter: true, icon:  <UserOutlined />},
-            {id: '22', link: '', name: '所有文件2', matchRouter: true }
+            {id: '2', link: '/test1', name: '所有文件1', icon:  <UserOutlined />},
+            {id: '22', link: '', name: '所有文件2' }
           ]
         },
         {
           id: '3',
           name: '回收站',
           icon: <UploadOutlined />,
-          matchRouter: true,
           link: '/test2'
+        },
+        {
+          id: '4',
+          name: 'Platform Project',
+          icon: <UploadOutlined />,
+          link: '/platform-project'
         }
       ]
     },
@@ -92,8 +97,9 @@ class App extends React.Component<AppProps, AppState> {
             </div>
             <div className="inner-content">
               <Switch>
-                <Route path={"/test1"} component={Test1}></Route>
-                <Route path={"/test2"} component={Test2}></Route>
+                <Route path={'/test1'} component={Test1}></Route>
+                <Route path={'/test2'} component={Test2}></Route>
+                <Route path={'/platform-project'} component={PlatformProject}></Route>
               </Switch>
 
             </div>
