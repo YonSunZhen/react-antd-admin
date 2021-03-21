@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Table, Tag, Space, Button } from 'antd';
 import { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
 import ProTable, { ProColumns, ActionType } from '@ant-design/pro-table';
@@ -50,7 +50,7 @@ function PlatformProject() {
            
           }}
         >
-          <span>点击</span>
+          <span>查看分支</span>
         </a>
       ],
     },
@@ -59,11 +59,17 @@ function PlatformProject() {
 
   return (
     <ProTable
-      headerTitle='Platform Project'
+      style = {{
+        height: '100%',
+        overflowY: 'auto',
+        backgroundColor: 'white'
+      }}
+      // headerTitle='Platform Project'
+      rowKey="project_url"
       search={{
         labelWidth: 120,
       }}
-      // request={(params, sorter, filter) => queryRule({ ...params, sorter, filter })}
+      request={(params, sorter, filter) => getTestData({ ...params, sorter, filter })}
       columns={columns}
     />
   );

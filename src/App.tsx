@@ -5,9 +5,11 @@ import {
   MenuFoldOutlined,
   UserOutlined,
   UploadOutlined,
+  GithubOutlined,
+  BankOutlined
 } from '@ant-design/icons';
 import { Route, Switch } from 'react-router-dom';
-import { ISiderMenu, ESiderMenuMode, UserMenu, IUserMenu, SiderMenu } from './layouts';
+import { ISiderMenu, ESiderMenuMode, UserMenu, IUserMenu, SiderMenu, ESiderMenuTheme } from './layouts';
 import { Test1, Test2, PlatformProject } from './pages';
 import './App.scss';
 
@@ -32,12 +34,13 @@ class App extends React.Component<AppProps, AppState> {
     collapsed: false,
     menuList: {
       mode: ESiderMenuMode.Inline,
+      theme: ESiderMenuTheme.Dark,
       data: [
         {
           id: '1',
           name: '全部文件',
           link: '',
-          icon: <MenuUnfoldOutlined />,
+          icon: <BankOutlined />,
           open: true,
           children: [
             {id: '2', link: '/test1', name: '所有文件1', icon:  <UserOutlined />},
@@ -53,7 +56,7 @@ class App extends React.Component<AppProps, AppState> {
         {
           id: '4',
           name: 'Platform Project',
-          icon: <UploadOutlined />,
+          icon: <GithubOutlined />,
           link: '/platform-project'
         }
       ]
@@ -76,39 +79,32 @@ class App extends React.Component<AppProps, AppState> {
 
 
   render() {
-    return (
-      <Layout className="app-container">
-        <Header className="header-container">
-          <div className="header">
+    return (     
+      <Layout>
+        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+          <div className="logo" />
+          <SiderMenu menuList={this.state.menuList}></SiderMenu>
+        </Sider>
+        <Layout className="site-layout">
+          <Header className="header">
             {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
               className: 'trigger',
               onClick: this.onToggle,
             })}
-            <div className="title">React Admin</div>
             <UserMenu userInfo={this.state.userInfo} onLogoutChange={this.onLogoutChange}></UserMenu>
-          </div>
-        </Header>
-        <Layout className="content-container">
+          </Header>
           <Content id="content">
-            <div className="sidebar-box">
-              <Sider id="side" trigger={null} collapsible collapsed={this.state.collapsed}>
-                <SiderMenu menuList={this.state.menuList}></SiderMenu>
-              </Sider>
-            </div>
-            <div className="inner-content">
-              <Switch>
-                <Route path={'/test1'} component={Test1}></Route>
-                <Route path={'/test2'} component={Test2}></Route>
-                <Route path={'/platform-project'} component={PlatformProject}></Route>
-              </Switch>
-
-            </div>
+            <Switch>
+              <Route path={'/test1'} component={Test1}></Route>
+              <Route path={'/test2'} component={Test2}></Route>
+              <Route path={'/platform-project'} component={PlatformProject}></Route>
+            </Switch>
           </Content>
           <Layout className="footer-container">
             <Footer id="footer">粤ICP备18135123号</Footer>
           </Layout>
         </Layout>
-      </Layout>
+      </Layout>  
     );
   }
 }

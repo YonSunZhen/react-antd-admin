@@ -10,3 +10,10 @@ export interface TestResponse {
   project_url?: string;
   revision?: string;
 }
+
+export interface TestParams {
+  pageSize?: number;
+  currentPage?: number;
+  filter?: Record<string, any[]>;
+  sorter?: Record<string, any>;
+}

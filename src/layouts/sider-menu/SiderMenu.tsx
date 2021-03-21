@@ -13,7 +13,7 @@ const SiderMenu: React.FC<SiderMenuProps> = (props) => {
   const {menuList = {}} = props;
 
   return (
-    <Menu mode={menuList.mode} defaultSelectedKeys={['1']}>
+    <Menu mode={menuList.mode} defaultSelectedKeys={['1']} theme={menuList.theme}>
       {menuList.data?.map((meunItem) => {
         if(meunItem.children && meunItem?.children?.length > 0) {
           return (
